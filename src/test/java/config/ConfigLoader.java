@@ -12,8 +12,11 @@ public class ConfigLoader {
 	 * Load properties based on environment (qa/staging/prod)
 	 */
 	public static void loadConfig(String env) {
+		
 		String configFilePath = "src/test/resources/config/" + env + ".properties";
+		
 		properties = new Properties();
+		
 		try (FileInputStream fis = new FileInputStream(configFilePath)) {
 			properties.load(fis);
 		} catch (IOException e) {

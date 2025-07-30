@@ -34,7 +34,8 @@ public class TestListnerUtil implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		testThread.get().fail(result.getThrowable());
+		ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+		testThread.set(test);
 	}
 
 	@Override
